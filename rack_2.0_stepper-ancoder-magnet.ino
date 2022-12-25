@@ -78,23 +78,26 @@ const int playLedPin =  53;
 int playBtnState = 0;
 
 //Magnet button
-const int magnetBtnPin = 56;
-const int magnetLedPin = 57;
+const int magnetBtnPin = 44;
+const int magnetLedPin = 45;
 int magnetBtnState = 0;
+int magnetState = 0;
+
+//pause button
+const int pauseBtnPin = 46;
+const int pauseLedPin = 47;
+int pauseBtnState = 0;
 
 //motor memory
-//int memory[500];
 int m1_memory[250];
 int m2_memory[250];
 int m3_memory[250];
-
 int m1_index = 0;
 int m2_index = 0;
 int m3_index = 0;
 
 //magnet memory
 int magnet_memory[20];
-
 int magnet_index = 0;
 
 //Sequence counter
@@ -150,6 +153,12 @@ void setup() {
   digitalWrite(magnetBtnPin, LOW);
   pinMode(magnetLedPin, OUTPUT);
   digitalWrite(magnetLedPin, LOW);
+
+  //Pause button & led configuration
+  pinMode(pauseBtnPin, INPUT);
+  digitalWrite(pauseBtnPin, LOW);
+  pinMode(pauseLedPin, OUTPUT);
+  digitalWrite(pauseLedPin, LOW);
 }
 
 
@@ -223,6 +232,7 @@ void loop() {
   recordBtnState = digitalRead(recordBtnPin); //record button
   playBtnState = digitalRead(playBtnPin); //play button
   magnetBtnState = digitalRead(magnetBtnPin); // magnet button
+//  pauseBtnState = digitalRead(pauseBtnPin); // pause button
   BTN1State = digitalRead(BTN1);
   BTN2State = digitalRead(BTN2);
   BTN3State = digitalRead(BTN3);
@@ -238,17 +248,17 @@ void loop() {
   }
 
   checkMagnet();
-
+  
   //for recording
   if (recordBtnState == HIGH) {
     digitalWrite(recordLedPin, HIGH);
-//    Serial.println("Recording your moves.......");
+    //    Serial.println("Recording your moves.......");
     startRecording();
   } else {
     digitalWrite(recordLedPin, LOW);
   }
 
-  //for playing a recording
+  //for playing a record
   if (playBtnState == HIGH) {
     digitalWrite(playLedPin, HIGH);
     startPlaying();

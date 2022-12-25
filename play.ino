@@ -2,6 +2,8 @@ void startPlaying() {
   Serial.println("Playing your saved recording.......");
   for (int i = 0 ; i < seq_index; i++) {
 
+    checkPause();
+
     int motor = seq_pointer[i] / 1000;
     Serial.print("Sequence pointer : ");
     Serial.println(seq_pointer[i]);
@@ -37,17 +39,23 @@ void startPlaying() {
         }
       case 5:
         {
-          Serial.println("Magnet ON");
+          Serial.println("\n\n\nMAGNET");
           int indexMagnet = seq_pointer[i] % 1000;
           int magnet_value = magnet_memory[indexMagnet];
           Serial.print("Value : ");
           Serial.println(magnet_value);
-          checkMagnet();
+          Serial.println("\n\n\n");
+          setMagnet(magnet_value);
           break;
         }
       default:
         Serial.println("ERR : error while playing Motor not found!!");
         break;
     }
+  }
+
+  Serial.println("\n\n\nCounter:::::");
+  for(int i=0; i< seq_index; i++){
+    Serial.println(seq_pointer[i]);
   }
 }

@@ -1,15 +1,15 @@
 void startRecording() {
-  
-  magnetBtnState = digitalRead(magnetBtnPin);
+
+//  magnetBtnState = digitalRead(magnetBtnPin);
   //magnet
-  if(magnet_prevState != magnetBtnState){
+  if (magnet_prevState != magnetBtnState) {
     magnet_memory[magnet_index] = magnetBtnState;
     seq_pointer[seq_index] = 5000 + magnet_index;
     magnet_index++;
     seq_index++;
   }
   magnet_prevState = magnetBtnState;
-  
+
   //  motor 1
   if (m1_prevDist != counter1) {
     gotoPosition(counter1, 1, stepPin1, dirPin1);

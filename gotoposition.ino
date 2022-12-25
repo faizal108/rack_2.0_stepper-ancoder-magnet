@@ -21,9 +21,9 @@ void gotoPosition(int gotoPos, int motor, int stepPin, int dirPin) {
         digitalWrite(dirPin, HIGH);
         for (int x = m1_currentPos; x < gotoPos; x++) {
           digitalWrite(stepPin, HIGH);
-          delayMicroseconds(1000);
+          delayMicroseconds(2000);
           digitalWrite(stepPin, LOW);
-          delayMicroseconds(1000);
+          delayMicroseconds(2000);
           m1_steps++;
         }
         //          Serial.print("Value of m1_steps : ");
@@ -40,9 +40,9 @@ void gotoPosition(int gotoPos, int motor, int stepPin, int dirPin) {
         digitalWrite(dirPin, LOW);
         for (int x = m1_currentPos; x > gotoPos; x--) {
           digitalWrite(stepPin, HIGH);
-          delayMicroseconds(1000);
+          delayMicroseconds(2000);
           digitalWrite(stepPin, LOW);
-          delayMicroseconds(1000);
+          delayMicroseconds(2000);
           m1_steps--;
         }
       }
@@ -117,9 +117,9 @@ void gotoPosition(int gotoPos, int motor, int stepPin, int dirPin) {
         digitalWrite(dirPin, HIGH);
         for (int x = m2_currentPos; x < gotoPos; x++) {
           digitalWrite(stepPin, HIGH);
-          delayMicroseconds(1000);
+          delayMicroseconds(2000);
           digitalWrite(stepPin, LOW);
-          delayMicroseconds(1000);
+          delayMicroseconds(2000);
           m2_steps++;
         }
         //          Serial.print("Value of m2_steps : ");
@@ -136,9 +136,9 @@ void gotoPosition(int gotoPos, int motor, int stepPin, int dirPin) {
         digitalWrite(dirPin, LOW);
         for (int x = m2_currentPos; x > gotoPos; x--) {
           digitalWrite(stepPin, HIGH);
-          delayMicroseconds(1000);
+          delayMicroseconds(2000);
           digitalWrite(stepPin, LOW);
-          delayMicroseconds(1000);
+          delayMicroseconds(2000);
           m2_steps--;
         }
       }
@@ -213,9 +213,9 @@ void gotoPosition(int gotoPos, int motor, int stepPin, int dirPin) {
         digitalWrite(dirPin, HIGH);
         for (int x = m3_currentPos; x < gotoPos; x++) {
           digitalWrite(stepPin, HIGH);
-          delayMicroseconds(1000);
+          delayMicroseconds(2000);
           digitalWrite(stepPin, LOW);
-          delayMicroseconds(1000);
+          delayMicroseconds(2000);
           m3_steps++;
         }
         //          Serial.print("Value of m3_steps : ");
@@ -232,9 +232,9 @@ void gotoPosition(int gotoPos, int motor, int stepPin, int dirPin) {
         digitalWrite(dirPin, LOW);
         for (int x = m3_currentPos; x > gotoPos; x--) {
           digitalWrite(stepPin, HIGH);
-          delayMicroseconds(1000);
+          delayMicroseconds(2000);
           digitalWrite(stepPin, LOW);
-          delayMicroseconds(1000);
+          delayMicroseconds(2000);
           m3_steps--;
         }
       }
